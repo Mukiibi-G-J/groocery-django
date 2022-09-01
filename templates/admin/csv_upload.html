@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %} {% block content %}
+
+{% for message in messages %} {% if message.tags == 'success' %}
+
+<div
+  id="toast"
+  class="toast-body bg-success text-light position-fixed top-0 end-0 p-3"
+  style="z-index: 11; border-radius: 4px"
+>
+  {{ message }}
+</div>
+
+{% endif %} {% endfor %}
+
+<div class="div">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+      
+        <div>{{form}}</div>
+        <button type="submit" class="btn btn-primary mr-2">Upload</button>
+      </form>
+ </div>
+{% endblock content %}
